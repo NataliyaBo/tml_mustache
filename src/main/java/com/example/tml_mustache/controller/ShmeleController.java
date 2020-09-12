@@ -15,6 +15,9 @@ public class ShmeleController {
     @GetMapping("/shmele")
     public ModelAndView workTimeList(Map<String, Object> model) {
 
+        model.put("topImage", "img/shmelik1.jpg");
+
+        //
         List<Href> topMenu = new ArrayList<>();
 
         Href href = new Href();
