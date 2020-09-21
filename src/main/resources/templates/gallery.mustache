@@ -1,5 +1,31 @@
+{{>header}}
 Галерея.
 Список элементов в массиве galleryList
 У каждого элемента два поля:
 image - исходное изображение
 thumbnail - превью
+<h1>Московское</h1>
+
+<div>
+<div id="nanogallery2" data-nanogallery2="{
+   /*'itemBaseURL':*/
+   'thumbnailWidth': '200',
+   'thumbnailHeight':  'auto',
+  'thumbnailLabel': {
+         'position': 'overImageOnBottom'},
+  'thumbnailAlignment': 'center',
+  'thumbnailOpenImage': 'true',
+  'viewerToolbar': { display: false },
+          'viewerTools': {
+            'topLeft':   'label',
+            'topRight':  'shareButton'
+          },
+}">
+{{#galleryList}}
+    <a href="{{image}}" data-ng2thumb="{{thumbnail}}" data-ng2desc=""></a>
+{{/galleryList}}
+
+</div>
+</div>
+
+{{>footer}}

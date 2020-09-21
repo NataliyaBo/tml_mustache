@@ -1,32 +1,68 @@
-Шмеле страница
+{{>header}}
+<div class="container">
+    <header>
+        <div class="figure">
 
-Изображение из шапки страницы в переменной topImage
-
-Верхнее меню в массиве topMenu
-У каждого элемента два поля:
-href - адрес ссылки (всегда #)
-text - текст ссылки
-
-Левое меню в массиве leftMenu
-У каждого элемента два поля:
-href - адрес ссылки (всегда #)
-text - текст ссылки
-
-Поздравление в переменной congratulation
-Переменная может быть или не быть. Появляется случайно.
-
-Главный текст в переменной mainText
-
-Левое меню в массиве rightMenu
-У каждого элемента два поля:
-href - адрес ссылки (всегда #)
-text - текст ссылки
-
-Список победителей в массиве winners
-Может быть пустым случайно.
-У каждого элемента два поля:
-href - адрес ссылки (всегда #)
-text - текст ссылки
-
-В футере повторить содержимое верхнего меню.
-
+            <img src="{{topImage}}" alt="bamblebee">
+        </div>
+        <div class="pnlMenu">
+            {{#topMenu}}
+                <div class="menu"><a href="{{href}}">{{text}}</a></div>
+            {{/topMenu}}
+        </div>
+    </header>
+    <main class="content">
+        <div class="left_bar">
+            <h4>Интересно жжнать!</h4>
+            <ul class="nav">
+                {{#leftMenu}}
+                    <li><a href="{{href}}">{{text}}</a></li>
+                {{/leftMenu}}
+            </ul>
+        </div>
+        <div class="hbday">
+            {{#congratulation}}
+                <h5>Пожждравляем!</h5>
+                <p class="hday">{{.}}</p>
+            {{/congratulation}}
+        </div>
+        <div class="pnl_content">
+            <div class="text">
+                {{{mainText}}}
+            </div>
+        </div>
+        <div class="right_bar">
+            <div class="pnlNews">
+                <h4>Жужжовости</h4>
+                <ul class="news">
+                    {{#rightMenu}}
+                        <li><a href="{{href}}">{{text}}</a>
+                        </li>
+                    {{/rightMenu}}
+                </ul>
+            </div>
+        </div>
+        <div class="go">
+            {{#winners.0}}
+                <h4>Передовики квартала</h4>
+                <ul>
+                    {{#winners}}
+                        <li><a href="{{href}}">{{text}}</a></li>
+                    {{/winners}}
+                </ul>
+            {{/winners.0}}
+        </div>
+    </main>
+    <footer class="pnlFooter">
+        <div class="txtAddr">
+            <div class="txt">
+                {{#topMenu}}
+                    <a href="{{href}}">{{text}}</a>
+                {{/topMenu}}
+                <address class="">55°45′07″ с. ш. 37°36′56″ в. д. e-mail: bblbee@shmel.vzhuh</address>
+                <p><a href="">Bumblebees</a></p>
+            </div>
+        </div>
+    </footer>
+</div>
+{{>footer}}

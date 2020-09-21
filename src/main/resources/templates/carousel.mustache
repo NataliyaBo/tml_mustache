@@ -1,2 +1,26 @@
+{{>header}}
 Карусель.
 Список картинок в массиве carouselList
+<div id="carouselList" class="carousel slide carousel-fade container" data-ride="carousel">
+    <ol class="carousel-indicators">
+        {{#carouselList}}
+            <li data-target="#carouselList" data-slide-to="{{idx}}" {{#isFirst}}class="active"{{/isFirst}}></li>
+        {{/carouselList}}
+    </ol>
+    <div class="carousel-inner">
+        {{#carouselList}}
+            <div class="carousel-item {{#isFirst}}active{{/isFirst}}">
+                <img class="d-block w-100" src="{{name}}"/>
+            </div>
+        {{/carouselList}}
+    </div>
+    <a class="carousel-control-prev" href="#carouselList" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselList" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">next</span>
+    </a>
+</div>
+{{>footer}}
