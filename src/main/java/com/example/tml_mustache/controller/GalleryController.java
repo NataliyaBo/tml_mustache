@@ -10,10 +10,12 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class GalleryController {
+public class GalleryController extends BaseController {
 
     @GetMapping("/gallery")
     public ModelAndView workTimeList(Map<String, Object> model) {
+
+        setBaseModel(model);
 
         List<GalleryItem> galleryList = new ArrayList<>();
         for (int idxItem = 1; idxItem <= 17; idxItem++) {

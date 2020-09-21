@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class WorkTimeController {
+public class WorkTimeController extends BaseController {
 
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -27,6 +27,7 @@ public class WorkTimeController {
     public ModelAndView workTimeList(@RequestParam(required = false) String employeeName,
                                      @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") Date workDate,
                                      Map<String, Object> model) {
+        setBaseModel(model);
         List<WorkTime> workTimeList = workTimeService.getAll(employeeName, workDate);
         model.put("workTimeList", workTimeList);
         model.put("employeeName", null != employeeName ? employeeName : "");

@@ -11,10 +11,12 @@ import java.util.Map;
 import com.example.tml_mustache.entity.ItemWithNum;
 
 @Controller
-public class CarouselController {
+public class CarouselController extends BaseController {
 
     @GetMapping("/carousel")
     public ModelAndView workTimeList(Map<String, Object> model) {
+
+        setBaseModel(model);
 
         List<ItemWithNum> carouselList = new ArrayList<>();
 
